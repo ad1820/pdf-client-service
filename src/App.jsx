@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
 import Login from './components/Auth/Login.jsx';
 import Signup from './components/Auth/Signup.jsx';
@@ -34,6 +35,8 @@ function PublicRoute({ children }) {
 
 function App() {
   return (
+    <>
+    <Analytics />
     <AuthProvider>
       <BrowserRouter>
         <Routes>
@@ -64,6 +67,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </AuthProvider>
+    </>
   );
 }
 
